@@ -16,6 +16,7 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\GroceryStore.Api\GroceryStore.Api.csproj" />
       <ProjectReference Include="..\GroceryStore.Infrastructure\GroceryStore.Infrastructure.csproj" />
     </ItemGroup>
 

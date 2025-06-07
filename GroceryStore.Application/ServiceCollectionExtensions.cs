@@ -6,7 +6,7 @@ namespace GroceryStore.Application;
 
 public static class ServiceCollectionExtensions
 {
-    public static void AddApplicationLayer(this IServiceCollection services, IConfiguration configuration)
+    public static void AddApplicationLayer(this IServiceCollection services)
     {
         services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
     }

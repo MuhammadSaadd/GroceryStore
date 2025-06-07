@@ -1,6 +1,8 @@
+using FluentResults;
+
 namespace GroceryStore.Domain;
 
-//TODO: add exception handling using fluent results
+
 public class Slot
 {
     private Slot()
@@ -24,11 +26,11 @@ public class Slot
     public TimeOnly Start { get; private set; }
     public bool IsGreenDelivery { get; private set; }
 
-    public static Slot Create(
+    public static Result<Slot> Create(
         DateOnly date,
         TimeOnly start)
     {
-        if (IsStartOutRange(start)) throw new ArgumentException("Start Time: {0} is out of range", start.ToString());
+        if (IsStartOutRange(start)) return Result.Fail($"Start Time: {start} is out of range");
 
         var isGreenDelivery = IsGreenDeliverySlot(start);
 
@@ -40,8 +42,11 @@ public class Slot
         return slot;
     }
 
-    public static IEnumerable<Slot> GenerateSlots(DateOnly orderDate, int days = Constants.MaxDeliverySchedulingDays)
+    public static Result<List<Slot>> GenerateSlots(DateOnly orderDate,
+        int days = Constants.MaxDeliverySchedulingDays)
     {
+        var slots = new List<Slot>();
+        
         for (var day = 0; day < days; day++)
         {
             var currentDate = orderDate.AddDays(day);
@@ -50,14 +55,21 @@ public class Slot
             {
                 var start = new TimeOnly(hour, 0);
 
-                yield return Create(
+                var slotResult = Create(
                     currentDate,
                     start);
+                
+                if(slotResult.IsFailed) return Result.Fail(slotResult.Errors);
+                
+                slots.Add(slotResult.Value);
             }
         }
+        
+        return Result.Ok(slots);
     }
 
-    private static bool IsStartOutRange(TimeOnly start) => start.Hour is < Constants.DeliveryStartTime or >= Constants.DeliveryEndTime;
+    private static bool IsStartOutRange(TimeOnly start) =>
+        start.Hour is < Constants.DeliveryStartTime or >= Constants.DeliveryEndTime;
 
     private static bool IsGreenDeliverySlot(TimeOnly start)
         => start.Hour is >= Constants.OffPeakHoursStart and < Constants.OffPeakHoursEnd;

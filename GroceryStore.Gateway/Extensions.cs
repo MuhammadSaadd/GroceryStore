@@ -6,7 +6,7 @@ public static class Extensions
 {
     public static void RegisterLayers(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddInfrastructure(configuration);
+        services.AddInfrastructureLayer(configuration);
     }
 
     public static async Task MigrateDatabase(this IServiceProvider serviceProvider, IConfiguration configuration)
