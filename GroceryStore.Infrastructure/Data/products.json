@@ -1,0 +1,162 @@
+[
+  {
+    "Id": "3f2d1c7a-e3f3-4a6a-904f-0d19f091eabe",
+    "Name": "Organic Milk",
+    "Description": "Fresh whole organic milk.",
+    "ExpiryDate": "2025-06-10T00:00:00",
+    "Price": 3.99,
+    "Type": 2
+  },
+  {
+    "Id": "67b0d142-2d4b-4018-9a7e-0f0248891240",
+    "Name": "Whole Wheat Bread",
+    "Description": "Daily baked whole wheat bread.",
+    "ExpiryDate": "2025-06-08T00:00:00",
+    "Price": 2.49,
+    "Type": 2
+  },
+  {
+    "Id": "df307dd2-cb54-46e1-9677-991fa616f11a",
+    "Name": "Imported Olive Oil",
+    "Description": "Premium quality extra virgin olive oil.",
+    "ExpiryDate": null,
+    "Price": 9.99,
+    "Type": 3
+  },
+  {
+    "Id": "65ad35a3-876e-4e9a-880b-cacabc6fa57f",
+    "Name": "Brown Eggs",
+    "Description": "Farm fresh brown eggs, dozen.",
+    "ExpiryDate": "2025-06-09T00:00:00",
+    "Price": 4.25,
+    "Type": 2
+  },
+  {
+    "Id": "27bb7d61-f405-4b68-a95d-f58b45732cb9",
+    "Name": "Toothpaste",
+    "Description": "Whitening toothpaste, 100ml.",
+    "ExpiryDate": null,
+    "Price": 1.89,
+    "Type": 1
+  },
+  {
+    "Id": "78005968-11df-4f08-8f47-6e3f16fc26ec",
+    "Name": "Chicken Breast (Grilled)",
+    "Description": "Freshly grilled chicken breast, 500g.",
+    "ExpiryDate": "2025-06-08T00:00:00",
+    "Price": 6.79,
+    "Type": 2
+  },
+  {
+    "Id": "965b3b7f-681c-4324-b4f0-f275fbf4438f",
+    "Name": "Shampoo",
+    "Description": "Herbal shampoo for dry hair, 250ml.",
+    "ExpiryDate": null,
+    "Price": 5.50,
+    "Type": 1
+  },
+  {
+    "Id": "f17d52c0-6e3c-4d7f-bb89-635caa6a3c4d",
+    "Name": "Frozen Peas",
+    "Description": "Frozen garden peas, 1kg.",
+    "ExpiryDate": "2025-12-01T00:00:00",
+    "Price": 3.49,
+    "Type": 1
+  },
+  {
+    "Id": "f7cdd04f-1a77-4f7f-9495-4cdd2ea70102",
+    "Name": "Yogurt Parfait",
+    "Description": "Fresh parfait with granola and berries.",
+    "ExpiryDate": "2025-06-08T00:00:00",
+    "Price": 3.59,
+    "Type": 2
+  },
+  {
+    "Id": "d4212a6f-e5b6-4a7c-bb1e-31325e379aa7",
+    "Name": "Imported Cheese",
+    "Description": "Aged cheddar cheese from France.",
+    "ExpiryDate": null,
+    "Price": 12.99,
+    "Type": 3
+  },
+  {
+    "Id": "a0e03d88-4e87-48e2-9d98-6e9d7f702c0f",
+    "Name": "Dish Soap",
+    "Description": "Lemon-scented dishwashing liquid.",
+    "ExpiryDate": null,
+    "Price": 1.59,
+    "Type": 1
+  },
+  {
+    "Id": "3bbfc6a3-46b1-45ed-9c3e-ff92b12e0ff6",
+    "Name": "Spinach Salad",
+    "Description": "Fresh spinach salad with dressing.",
+    "ExpiryDate": "2025-06-08T00:00:00",
+    "Price": 5.19,
+    "Type": 2
+  },
+  {
+    "Id": "173da97b-f7ae-406f-98cb-b9254d9cd238",
+    "Name": "Pasta",
+    "Description": "Dried Italian pasta, 500g.",
+    "ExpiryDate": "2026-01-15T00:00:00",
+    "Price": 2.99,
+    "Type": 1
+  },
+  {
+    "Id": "3d7f94f1-d2be-45c5-82ff-924abfb6e5d4",
+    "Name": "Imported Mangoes",
+    "Description": "Sweet mangoes from Thailand.",
+    "ExpiryDate": null,
+    "Price": 7.99,
+    "Type": 3
+  },
+  {
+    "Id": "547b13f7-5c3d-4f52-b1ff-89e1c1498573",
+    "Name": "Grilled Veggies",
+    "Description": "Freshly grilled seasonal vegetables.",
+    "ExpiryDate": "2025-06-08T00:00:00",
+    "Price": 4.49,
+    "Type": 2
+  },
+  {
+    "Id": "c96eb2ad-0452-4142-b8f9-9a5d4719a44e",
+    "Name": "Toilet Paper (12 rolls)",
+    "Description": "Soft and strong toilet paper.",
+    "ExpiryDate": null,
+    "Price": 6.99,
+    "Type": 1
+  },
+  {
+    "Id": "aad3c5fd-b404-4b29-8f57-3c0b8a0ff5fc",
+    "Name": "Imported Spices Set",
+    "Description": "Exotic spice blend pack from India.",
+    "ExpiryDate": null,
+    "Price": 14.99,
+    "Type": 3
+  },
+  {
+    "Id": "57e27fa2-e6f4-43a5-8d5a-c1f50ecf46dc",
+    "Name": "Orange Juice",
+    "Description": "Freshly squeezed orange juice, 1L.",
+    "ExpiryDate": "2025-06-09T00:00:00",
+    "Price": 3.29,
+    "Type": 2
+  },
+  {
+    "Id": "f98d3bd9-df9d-4e64-8a60-82b8eac4731f",
+    "Name": "Hand Sanitizer",
+    "Description": "Alcohol-based hand sanitizer, 100ml.",
+    "ExpiryDate": null,
+    "Price": 2.49,
+    "Type": 1
+  },
+  {
+    "Id": "e1cf34f3-1949-491f-8fcb-b5ac8f262b17",
+    "Name": "Imported Chocolate",
+    "Description": "Dark chocolate from Belgium.",
+    "ExpiryDate": null,
+    "Price": 5.99,
+    "Type": 3
+  }
+]
