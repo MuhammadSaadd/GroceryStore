@@ -1,0 +1,6 @@
+@GroceryStore.Gateway_HostAddress = http://localhost:5074
+
+GET {{GroceryStore.Gateway_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
