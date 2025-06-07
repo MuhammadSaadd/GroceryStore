@@ -1,0 +1,21 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{EFDF3CFD-F63D-4DB2-93BD-1FD9EBF24982}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroceryStore.Domain", "GroceryStore.Domain\GroceryStore.Domain.csproj", "{CA56995E-855B-4D24-8450-DC93AA61A6F1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CA56995E-855B-4D24-8450-DC93AA61A6F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA56995E-855B-4D24-8450-DC93AA61A6F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA56995E-855B-4D24-8450-DC93AA61A6F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA56995E-855B-4D24-8450-DC93AA61A6F1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CA56995E-855B-4D24-8450-DC93AA61A6F1} = {EFDF3CFD-F63D-4DB2-93BD-1FD9EBF24982}
+	EndGlobalSection
+EndGlobal
