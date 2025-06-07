@@ -4,13 +4,13 @@ using MediatR;
 
 namespace GroceryStore.Application.Features.GetProducts;
 
-public class Handler(IProductsRepository repository) : IRequestHandler<Query, Result<List<GetProductResponse>>>
+public class Handler(IGroceryRepository repository) : IRequestHandler<Query, Result<List<GetProductResponse>>>
 {
     public async Task<Result<List<GetProductResponse>>> Handle(
         Query request,
         CancellationToken cancellationToken)
     {
-        var products = await repository.GetAllAsync(cancellationToken);
+        var products = await repository.GetAllProductsAsync(cancellationToken);
 
         return products.Select(p => new GetProductResponse
             {

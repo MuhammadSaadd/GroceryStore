@@ -12,7 +12,7 @@ public static class ServiceCollectionExtensions
 {
     public static void AddInfrastructureLayer(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddScoped<IProductsRepository, ProductsRepository>();
+        services.AddScoped<IGroceryRepository, GroceryRepository>();
         
         services.AddApplicationLayer();
         
