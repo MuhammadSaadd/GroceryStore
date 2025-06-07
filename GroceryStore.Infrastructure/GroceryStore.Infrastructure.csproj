@@ -19,4 +19,10 @@
       <ProjectReference Include="..\GroceryStore.Domain\GroceryStore.Domain.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Update="Data\products.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
 </Project>

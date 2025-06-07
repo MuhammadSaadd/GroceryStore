@@ -1,3 +1,5 @@
+using System.Text.Json.Serialization;
+
 namespace GroceryStore.Domain;
 
 public class Product
@@ -14,11 +16,11 @@ public class Product
         Type = default;
     }
 
+    [JsonConstructor]
     protected Product(
         string name,
         string description,
         DateTime? expiryDate,
-        string barcode,
         decimal price,
         ProductType type) : this()
     {

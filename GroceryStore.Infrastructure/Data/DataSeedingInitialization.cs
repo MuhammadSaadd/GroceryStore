@@ -14,7 +14,8 @@ public static class DataSeedingInitialization
     {
         if (context.Products.Any()) return;
 
-        var json = await File.ReadAllTextAsync("products.json");
+        Console.WriteLine($"%%%%%%%%%%%%%%%%%%%%{AppContext.BaseDirectory}%%%%%%%%%%%%%%");
+        var json = await File.ReadAllTextAsync(Path.Combine(AppContext.BaseDirectory, "Data/products.json"));
         var products = JsonSerializer.Deserialize<List<Domain.Product>>(json);
 
         await context.Products.AddRangeAsync(products ?? []);
