@@ -2,7 +2,6 @@ using FluentResults;
 
 namespace GroceryStore.Domain;
 
-
 public class Slot
 {
     private Slot()
@@ -46,10 +45,12 @@ public class Slot
         int days = Constants.MaxDeliverySchedulingDays)
     {
         var slots = new List<Slot>();
-        
+
         for (var day = 0; day < days; day++)
         {
             var currentDate = orderDate.AddDays(day);
+
+            if (currentDate.DayOfWeek is DayOfWeek.Saturday or DayOfWeek.Sunday) continue;
 
             for (var hour = Constants.DeliveryStartTime; hour <= Constants.DeliveryEndTime - 1; hour++)
             {
@@ -58,13 +59,13 @@ public class Slot
                 var slotResult = Create(
                     currentDate,
                     start);
-                
-                if(slotResult.IsFailed) return Result.Fail(slotResult.Errors);
-                
+
+                if (slotResult.IsFailed) return Result.Fail(slotResult.Errors);
+
                 slots.Add(slotResult.Value);
             }
         }
-        
+
         return Result.Ok(slots);
     }
 
