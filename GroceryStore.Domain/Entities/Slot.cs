@@ -1,6 +1,6 @@
 using FluentResults;
 
-namespace GroceryStore.Domain;
+namespace GroceryStore.Domain.Entities;
 
 public class Slot
 {

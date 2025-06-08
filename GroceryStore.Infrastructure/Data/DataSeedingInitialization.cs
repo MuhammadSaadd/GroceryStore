@@ -1,4 +1,5 @@
 using System.Text.Json;
+using GroceryStore.Domain.Entities;
 
 namespace GroceryStore.Infrastructure.Data;
 
@@ -16,7 +17,7 @@ public static class DataSeedingInitialization
 
         Console.WriteLine($"%%%%%%%%%%%%%%%%%%%%{AppContext.BaseDirectory}%%%%%%%%%%%%%%");
         var json = await File.ReadAllTextAsync(Path.Combine(AppContext.BaseDirectory, "Data/products.json"));
-        var products = JsonSerializer.Deserialize<List<Domain.Product>>(json);
+        var products = JsonSerializer.Deserialize<List<Product>>(json);
 
         await context.Products.AddRangeAsync(products ?? []);
     }

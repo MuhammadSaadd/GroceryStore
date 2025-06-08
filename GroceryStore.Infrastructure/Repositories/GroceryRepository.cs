@@ -2,6 +2,7 @@ using GroceryStore.Domain;
 using Microsoft.EntityFrameworkCore;
 using GroceryStore.Infrastructure.Data;
 using GroceryStore.Application.Abstractions;
+using GroceryStore.Domain.Entities;
 
 namespace GroceryStore.Infrastructure.Repositories;
 

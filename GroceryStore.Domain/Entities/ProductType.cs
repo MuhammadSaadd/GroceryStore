@@ -1,4 +1,4 @@
-namespace GroceryStore.Domain;
+namespace GroceryStore.Domain.Entities;
 
 public enum ProductType
 {

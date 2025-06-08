@@ -1,4 +1,5 @@
 using GroceryStore.Domain;
+using GroceryStore.Domain.Entities;
 using MediatR;
 
 namespace GroceryStore.Application.Features.GetProducts;
