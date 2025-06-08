@@ -7,7 +7,7 @@ using GroceryStore.Domain.Services;
 namespace GroceryStore.Application.Features.GetAvailableSlots;
 
 public class Handler(
-    IGroceryRepository repository,
+    IGroceryRepository groceryRepository,
     IDeliveryPolicyDomainService deliveryPolicyDomainService)
     : IRequestHandler<Query, Result<IEnumerable<GetSlotsResponse>>>
 {
@@ -15,10 +15,10 @@ public class Handler(
         Query query,
         CancellationToken cancellationToken)
     {
-        if (await repository.AllProductsExistAsync(query.Ids, cancellationToken))
+        if (!await groceryRepository.AllProductsExistAsync(query.Ids, cancellationToken))
             return Result.Fail("not all products exists");
 
-        var products = await repository
+        var products = await groceryRepository
             .GetAllProductsAsync(query.Ids, cancellationToken);
 
         var allPossibleSlotsResult = Slot.GenerateSlots(DateOnly.FromDateTime(query.OrderDate));

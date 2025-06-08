@@ -18,6 +18,6 @@ public class Endpoint(ISender sender) : ControllerBase
     {
         var products = await sender.Send(new Query(), CancellationToken);
 
-        return products.IsFailed ? BadRequest(products.Errors) : Ok(products);
+        return products.IsFailed ? BadRequest(products.Errors) : Ok(products.Value);
     }
 }
