@@ -11,5 +11,5 @@ public record GetProductResponse
     public required string Description { get; init; }
     public DateTime? ExpiryDate { get; init; }
     public decimal Price { get; init; }
-    public ProductType Type { get; init; }
+    public required string Type { get; init; }
 }

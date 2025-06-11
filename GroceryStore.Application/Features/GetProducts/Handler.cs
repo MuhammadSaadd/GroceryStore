@@ -19,7 +19,7 @@ public class Handler(IGroceryRepository repository) : IRequestHandler<Query, Res
                 Price = p.Price,
                 Description = p.Description,
                 ExpiryDate = p.ExpiryDate,
-                Type = p.Type
+                Type = p.Type.ToString()
             })
             .ToList();
     }

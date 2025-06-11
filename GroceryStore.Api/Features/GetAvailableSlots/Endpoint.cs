@@ -20,12 +20,14 @@ public class Endpoint(ISender sender) : ControllerBase
 {
     private CancellationToken CancellationToken => HttpContext.RequestAborted;
 
-    [HttpPost("api/available_slots")]
+    [HttpGet("api/slots/available")]
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<GetSlotsResponse>))]
-    public async Task<IActionResult> GetAvailableSlots([FromBody] Query query)
+    public async Task<IActionResult> GetAvailableSlots([FromQuery] DateTime orderDate, [FromQuery] List<Guid> ids)
     {
+        var query = new Query { OrderDate = orderDate, Ids = ids };
+        
         var slotsResult = await sender.Send(query, CancellationToken);
 
         return slotsResult.IsFailed ? NotFound(slotsResult.Errors) : Ok(slotsResult.Value);
