@@ -1,8 +1,5 @@
-using System.Text.Json.Serialization;
-
 namespace GroceryStore.Domain.Entities;
 
-[method: JsonConstructor]
 public class ExternalProduct(
     Guid id,
     string name,

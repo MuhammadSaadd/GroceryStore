@@ -1,8 +1,5 @@
-using System.Text.Json.Serialization;
-
 namespace GroceryStore.Domain.Entities;
 
-[method: JsonConstructor]
 public class FreshFoodProduct(
     Guid id,
     string name,
