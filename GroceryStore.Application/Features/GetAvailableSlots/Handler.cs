@@ -24,10 +24,10 @@ public class Handler(
         var allPossibleSlotsResult = Slot.GenerateSlots(DateOnly.FromDateTime(query.OrderDate));
 
         if (allPossibleSlotsResult.IsFailed) return Result.Fail(allPossibleSlotsResult.Errors);
-        
+
         var orderDate = DateOnly.FromDateTime(query.OrderDate);
         var orderTime = TimeOnly.FromDateTime(query.OrderDate);
-        
+
         var filteredSlots = deliveryPolicyDomainService.FilterAvailableSlots(
             allPossibleSlotsResult.Value, products, orderDate, orderTime);
 

@@ -17,7 +17,7 @@ namespace GroceryStore.Infrastructure.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "8.0.16");
 
-            modelBuilder.Entity("GroceryStore.Domain.Product", b =>
+            modelBuilder.Entity("GroceryStore.Domain.Entities.Product", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -27,7 +27,7 @@ namespace GroceryStore.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<DateTime?>("ExpiryDate")
+                    b.Property<DateOnly?>("ExpiryDate")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
@@ -43,6 +43,31 @@ namespace GroceryStore.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Products", (string)null);
+
+                    b.HasDiscriminator<int>("Type");
+
+                    b.UseTphMappingStrategy();
+                });
+
+            modelBuilder.Entity("GroceryStore.Domain.Entities.ExternalProduct", b =>
+                {
+                    b.HasBaseType("GroceryStore.Domain.Entities.Product");
+
+                    b.HasDiscriminator().HasValue(3);
+                });
+
+            modelBuilder.Entity("GroceryStore.Domain.Entities.FreshFoodProduct", b =>
+                {
+                    b.HasBaseType("GroceryStore.Domain.Entities.Product");
+
+                    b.HasDiscriminator().HasValue(2);
+                });
+
+            modelBuilder.Entity("GroceryStore.Domain.Entities.InStockProduct", b =>
+                {
+                    b.HasBaseType("GroceryStore.Domain.Entities.Product");
+
+                    b.HasDiscriminator().HasValue(1);
                 });
 #pragma warning restore 612, 618
         }

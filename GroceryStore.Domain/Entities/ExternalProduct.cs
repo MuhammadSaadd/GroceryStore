@@ -1,11 +1,14 @@
+using System.Text.Json.Serialization;
+
 namespace GroceryStore.Domain.Entities;
 
+[method: JsonConstructor]
 public class ExternalProduct(
     Guid id,
     string name,
     string description,
     decimal price,
-    DateTime expiryDate) : Product(id, name, description, price, expiryDate)
+    DateOnly? expiryDate) : Product(id, name, description, price, expiryDate)
 {
     public override bool CanBeDeliveredOn(Slot slot, DateOnly orderDate, TimeOnly orderTime)
     {

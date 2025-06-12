@@ -15,10 +15,32 @@ public static class DataSeedingInitialization
     {
         if (context.Products.Any()) return;
 
-        Console.WriteLine($"%%%%%%%%%%%%%%%%%%%%{AppContext.BaseDirectory}%%%%%%%%%%%%%%");
         var json = await File.ReadAllTextAsync(Path.Combine(AppContext.BaseDirectory, "Data/products.json"));
-        var products = JsonSerializer.Deserialize<List<Product>>(json);
+        var productDtos = JsonSerializer.Deserialize<List<ProductDto>>(json);
 
-        await context.Products.AddRangeAsync(products ?? []);
+        var products = productDtos.Select(dto => (Product?)(dto.Type switch
+            {
+                (int)ProductType.InStock => new InStockProduct(dto.Id, dto.Name, dto.Description, dto.Price,
+                    dto.ExpiryDate),
+                (int)ProductType.External => new ExternalProduct(dto.Id, dto.Name, dto.Description, dto.Price,
+                    dto.ExpiryDate),
+                (int)ProductType.FreshFood => new FreshFoodProduct(dto.Id, dto.Name, dto.Description, dto.Price,
+                    dto.ExpiryDate),
+                _ => null
+            }))
+            .OfType<Product>()
+            .ToList();
+
+        await context.Products.AddRangeAsync(products);
     }
+}
+
+public class ProductDto
+{
+    public Guid Id { get; init; }
+    public string Name { get; init; }
+    public string Description { get; init; }
+    public DateOnly? ExpiryDate { get; init; }
+    public decimal Price { get; init; }
+    public int Type { get; init; }
 }

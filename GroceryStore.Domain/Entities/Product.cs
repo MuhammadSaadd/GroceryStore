@@ -1,10 +1,8 @@
-using System.Text.Json.Serialization;
-
 namespace GroceryStore.Domain.Entities;
 
 public abstract class Product
 {
-    protected Product()
+    private Product()
     {
         Id = Guid.Empty;
         Name = string.Empty;
@@ -12,14 +10,13 @@ public abstract class Product
         Price = 0;
         ExpiryDate = null;
     }
-
-    [JsonConstructor]
+    
     protected Product(
         Guid id,
         string name,
         string description,
         decimal price,
-        DateTime expiryDate)
+        DateOnly? expiryDate)
     {
         Id = id;
         Name = name;
@@ -31,8 +28,8 @@ public abstract class Product
     public Guid Id { get; private set; }
     public string Name { get; private set; }
     public string Description { get; private set; }
-    public DateTime? ExpiryDate { get; private set; }
+    public DateOnly? ExpiryDate { get; private set; }
     public decimal Price { get; private set; }
-
+    
     public abstract bool CanBeDeliveredOn(Slot slot, DateOnly orderDate, TimeOnly orderTime);
 }
