@@ -9,7 +9,7 @@ public class ExternalProduct(
 {
     public override bool CanBeDeliveredOn(Slot slot, DateOnly orderDate, TimeOnly orderTime)
     {
-        var minDate = orderDate.AddDays(3);
+        var minDate = orderDate.AddDays(Constants.ExternalProductMinimumDaysNotice);
         return slot.Date >= minDate &&
                slot.Date.DayOfWeek is >= DayOfWeek.Tuesday and <= DayOfWeek.Friday;
     }

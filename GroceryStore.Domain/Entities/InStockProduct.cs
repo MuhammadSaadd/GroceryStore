@@ -9,7 +9,7 @@ public class InStockProduct(
 {
     public override bool CanBeDeliveredOn(Slot slot, DateOnly orderDate, TimeOnly orderTime)
     {
-        if (orderTime >= new TimeOnly(18, 0))
+        if (orderTime >= new TimeOnly(Constants.InStockSameDayDeliveryCutoff, 0))
             return slot.Date > orderDate;
         return true;
     }

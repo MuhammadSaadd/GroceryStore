@@ -9,7 +9,7 @@ public class FreshFoodProduct(
 {
     public override bool CanBeDeliveredOn(Slot slot, DateOnly orderDate, TimeOnly orderTime)
     {
-        if (orderTime >= new TimeOnly(12, 0))
+        if (orderTime >= new TimeOnly(Constants.FreshFoodSameDayDeliveryCutoff, 0))
             return slot.Date > orderDate;
         return true;
     }
