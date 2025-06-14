@@ -24,9 +24,9 @@ public class Handler(IGroceryRepository repository) : IRequestHandler<Query, Res
                 ExpiryDate = p.ExpiryDate,
                 Type = p switch
                 {
-                    InStockProduct => ProductType.InStock,
-                    FreshFoodProduct => ProductType.FreshFood,
-                    ExternalProduct => ProductType.External,
+                    InStockProduct => "In Stock",
+                    FreshFoodProduct => "Fresh Food",
+                    ExternalProduct => "External Product",
                     _ => throw new InvalidOperationException($"Unknown product type: {p.GetType()}")
                 }
             })
