@@ -8,7 +8,7 @@ namespace GroceryStore.Application.Features.GetAvailableSlots;
 
 public class Handler(
     IGroceryRepository groceryRepository,
-    IDeliveryPolicyDomainService deliveryPolicyDomainService)
+    IDeliverableDomainService deliverableDomainService)
     : IRequestHandler<Query, Result<IEnumerable<GetSlotsResponse>>>
 {
     public async Task<Result<IEnumerable<GetSlotsResponse>>> Handle(
@@ -28,7 +28,7 @@ public class Handler(
         var orderDate = DateOnly.FromDateTime(query.OrderDate);
         var orderTime = TimeOnly.FromDateTime(query.OrderDate);
 
-        var filteredSlots = deliveryPolicyDomainService.FilterAvailableSlots(
+        var filteredSlots = deliverableDomainService.FilterAvailableSlots(
             allPossibleSlotsResult.Value, products, orderDate, orderTime);
 
         var sorted = filteredSlots

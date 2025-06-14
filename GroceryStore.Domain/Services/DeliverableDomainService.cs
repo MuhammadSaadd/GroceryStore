@@ -2,7 +2,7 @@ using GroceryStore.Domain.Entities;
 
 namespace GroceryStore.Domain.Services;
 
-public class DeliveryPolicyDomainService : IDeliveryPolicyDomainService
+public class DeliverableDomainService : IDeliverableDomainService
 {
     public IEnumerable<Slot> FilterAvailableSlots(
         IEnumerable<Slot> allSlots,

@@ -7,6 +7,6 @@ public static class ServiceCollectionExtensions
 {
     public static void AddDomainLayer(this IServiceCollection services)
     {
-        services.AddScoped<IDeliveryPolicyDomainService, DeliveryPolicyDomainService>();
+        services.AddScoped<IDeliverableDomainService, DeliverableDomainService>();
     }
 }
